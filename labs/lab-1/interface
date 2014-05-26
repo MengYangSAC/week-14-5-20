@@ -1,0 +1,7 @@
+
+public interface DiceCardInterface {
+	
+	public int random_num(int die);
+
+	public String getHistory();
+}
