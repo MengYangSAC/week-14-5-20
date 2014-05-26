@@ -1,0 +1,24 @@
+
+public class DiceCardTest {
+
+	public static void main(String[] args) 
+	{
+		DiceCardInterface[] history = new DiceCardInterface[100];
+		
+		System.out.println("the comp will throw dices and deal 3 cards");
+		
+		System.out.println("here are the dices");
+		history [0] = new Dice(3);
+		history[0].random_num(3);
+		
+		System.out.println("here are the cards");
+		history [1] = new Card(3);
+		history[1].random_num(3);
+	
+		for (DiceCardInterface currentHistory : history)
+		{
+			System.out.printf("%s \n", currentHistory.toString());
+		}
+	}
+
+}
