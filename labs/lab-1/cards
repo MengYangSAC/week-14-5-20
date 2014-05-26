@@ -1,0 +1,48 @@
+
+public class Card implements DiceCardInterface {
+	
+	String s;
+	int x;
+	int y;
+	int z;
+	int total;
+	
+	int [] array = new int [100];
+	
+	
+	public Card (int cards)
+	{
+		x = cards;
+		array = new int[x];
+	}
+	@Override
+	public int random_num(int cards)
+	{
+		total = 0;
+		x = cards;
+		for (int i = 0 ; i <x; i++){
+			cards = 1 + (int)(Math.random()*10);
+			array[i]= cards;
+			System.out.println(cards);
+			total = total + cards;
+		}
+		getHistory();
+		System.out.printf("the total is %d\n", total);
+		return total;
+	}
+	@Override 
+	public String getHistory()
+	{
+		return s;
+	}
+	@Override
+	public String toString()
+	{
+		String s = "Card history";
+		for (int i = 0; i<x; i++)
+		{
+			s = s + " " + (i + 1) + "=" + array[i];
+		}
+		return s;
+	}
+}
