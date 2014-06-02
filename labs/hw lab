@@ -1,0 +1,62 @@
+public class HWDice implements Interface {
+	public long dice;
+	String s;
+	int x;
+	int y;
+	int z;
+	int total;
+
+	int[] array = new int[100];
+
+	public HWDice(int dice) {
+		x = dice;
+
+	}
+
+	public int Throw() {
+		total = 0;
+		for (int b = x; b > 0; b--) {
+			int die = (int) (1 + (Math.random() * 6));
+			System.out.printf("%d\n", die);
+			total = total + die;
+
+		}
+		System.out.printf("this is the total %d\n", total);
+
+		return total;
+	}
+
+	@Override
+	public int Throw(int bounce) throws Exception {
+
+		total = 0;
+		for (int i = bounce; i > 0; i--) {
+			int die = (int) (1 + (Math.random() * 6));
+			System.out.printf("%d\n", die);
+			total = total + die;
+			if (total > 21) {
+				throw new Exception("over 21 to much");
+			} else {
+				array[i] = total;
+			}
+		}
+		getHistory();
+		System.out.printf("this is the total %d\n", total);
+		return total;
+	}
+
+	@Override
+	public String getHistory() {
+		return s;
+	}
+
+	@Override
+	public String toString() {
+		s = "card history";
+		for (int i = 0; i < x; i++) {
+			s = s + " " + (i + 1) + "=" + array[i];
+		}
+		return s;
+	}
+
+}
