@@ -38,3 +38,5 @@ public class HWCards {
 	}
 
 }
+
+// Good job, though toString needs not be part of the interface, as it is inherited.
