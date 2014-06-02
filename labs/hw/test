@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class HWCards {
+
+	public static void main(String[] args) {
+		Interface[] history = new Interface[100];
+		Scanner input = new Scanner(System.in);
+		int dice;
+		int cards;
+		int x = 1;
+		int i = 0;
+
+		try {
+			while (x != 0 && i < 3) {
+				i++;
+
+				System.out
+						.printf("you get to play up to three times rite now is %d\n",
+								i);
+
+				System.out.println("how many cards to deal");
+				cards = input.nextInt();
+
+				System.out.println("here are the cards");
+				history[0] = new HWDice(cards);
+				history[0].Throw(cards);
+
+				System.out
+						.println("do you want to play again 1 for yes 0 for no");
+				x = input.nextInt();
+			}
+			for (Interface currentHistory : history) {
+				System.out.printf("%s \n", currentHistory.toString());
+			}
+		} catch (Exception e) {
+			System.err.printf("Exception: %s", e);
+		}
+	}
+
+}
