@@ -1,0 +1,9 @@
+
+public interface Interface {
+	
+	public int Throw(int die) throws Exception;
+
+	public String getHistory();
+	
+	public String toString();
+}
